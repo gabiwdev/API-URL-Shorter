@@ -16,14 +16,13 @@ def shorten():
     key = generate_key()
     urls['key'] = original_url
 
+@app.route('/<key>')
+def redirect_url(key):
+    if key not in urls:
+        return 'URL not found', 404
+    return redirect(urls[key])
 
-@app.route('/')
-def hello_word():
-    return 'Hello, Word!'
 
-@app.route('/HTML')
-def troll():
-    return 'Caiu mauzão'
 
 if __name__ == "__main__":
     app.run(debug=True)
