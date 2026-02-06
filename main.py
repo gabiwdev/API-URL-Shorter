@@ -14,7 +14,10 @@ def shorten():
     original_url = data['url']
     
     key = generate_key()
-    urls['key'] = original_url
+    urls[key] = original_url
+    return jsonify( {
+    "short_url": f"http://localhost:5000/{key}"
+} )
 
 @app.route('/<key>')
 def redirect_url(key):
