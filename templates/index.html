@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>URL Shortener</h1>
-    <form>
+    <form method="POST" action="/">
         <input
             type="url"
             name="url"
@@ -23,6 +23,6 @@
             <a href="{{ short_url }}" target="_blank"> {{ short_url }} </a> 
         </p> 
     {% endif %}
-    
+
 </body>
 </html>

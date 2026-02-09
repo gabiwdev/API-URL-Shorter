@@ -8,7 +8,6 @@ urls = {}
 def generate_key(length = 6):
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
-@app.route('/shorten', methods=['POST'])
 def shorten():
     data = request.get_json()
     original_url = data['url']
@@ -28,6 +27,7 @@ def redirect_url(key):
 
 @app.route('/')
 def home():
+
     return render_template('index.html')
 
 
