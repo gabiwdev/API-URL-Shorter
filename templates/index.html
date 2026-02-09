@@ -18,10 +18,12 @@
         <button type="submit">Encurtar</button>
     </form>
     
-    {% if url_encurtada %} 
-        <p> URL encurtada: 
-            <a href="{{ url_encurtada }}" target="_blank"> {{ url_encurtada }} </a> 
-        </p> 
+    {% if url_encurtada %}
+        <div class="resposta">
+            <p> URL encurtada: 
+                <a href="{{ url_encurtada }}" target="_blank"> {{ url_encurtada }} </a> 
+            </p> 
+        </div>
     {% endif %}
 
 </body>
