@@ -1,0 +1,25 @@
+body {
+    background-color: #060c24;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    color: white;
+    align-self: center;
+}
+
+form {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    display: block;
+    align-self: center;
+    margin: 10px;
+    font-size: 20px;
+    padding: 5px;
+}

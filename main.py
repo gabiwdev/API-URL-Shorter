@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, redirect
+from flask import Flask, request, jsonify, redirect, render_template
 import random
 import string
 app = Flask(__name__)
@@ -25,6 +25,10 @@ def redirect_url(key):
     if key not in urls:
         return 'URL not found', 404
     return redirect(urls[key])
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 
 
