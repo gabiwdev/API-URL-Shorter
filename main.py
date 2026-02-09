@@ -31,6 +31,8 @@ def home():
     if request.method == "POST":
         url_original = request.form.get('url')
         url_encurtada = shorten(url_original)
+        if not url_original:
+            return render_template('index.html', url_encurtada=url_encurtada)
 
     return render_template('index.html', url_encurtada=url_encurtada)
 
