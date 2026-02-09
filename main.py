@@ -8,16 +8,12 @@ urls = {}
 def generate_key(length = 6):
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
-def shorten():
-    data = request.get_json()
-    original_url = data['url']
-    
+def shorten(url):
+   
     key = generate_key()
-    urls[key] = original_url
+    urls[key] = url
     
-    return jsonify( {
-    "short_url": f"http://localhost:5000/{key}"
-} )
+    return f"http://127.0.0.1:5000/{key}"
 
 @app.route('/<key>')
 def redirect_url(key):
@@ -25,10 +21,15 @@ def redirect_url(key):
         return 'URL not found', 404
     return redirect(urls[key])
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
+    url_encurtada = None
 
-    return render_template('index.html')
+    if request.method == "POST":
+        url_original = request.form.get('url')
+        url_encurtada = shorten(url_original)
+
+    return render_template('index.html', url_encurtada=url_encurtada)
 
 
 
