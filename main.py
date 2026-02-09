@@ -11,6 +11,9 @@ def generate_key(length = 6):
 def shorten(url):
    
     key = generate_key()
+    while key in urls:
+        key = generate_key()
+
     urls[key] = url
     
     return f"http://127.0.0.1:5000/{key}"
