@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, redirect, render_template
+from flask import Flask, request, redirect, render_template
 import random
 import string
 app = Flask(__name__)
@@ -35,8 +35,6 @@ def home():
             return render_template('index.html', url_encurtada=url_encurtada)
 
     return render_template('index.html', url_encurtada=url_encurtada)
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
